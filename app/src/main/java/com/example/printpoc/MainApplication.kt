@@ -1,30 +1,20 @@
-package com.example.printpoc;
+package com.example.printpoc
 
-import android.app.Application;
-import android.content.Context;
+import android.app.Application
+import android.content.Context
 
-public class MainApplication extends Application {
-
-
-    private static Context context;
-    private static PrinterService printerService;
-
-    public static Context getContext() {
-        return context;
+class MainApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        context = this
+        printerService = IMinPrinterService()
+        printerService!!.initPrinter()
     }
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        context = this;
-
-        printerService = new IMinPrinterService();
-        printerService.initPrinter();
+    companion object {
+        var context: Context? = null
+            private set
+        var printerService: PrinterService? = null
+            private set
     }
-
-    public static PrinterService getPrinterService()
-    {
-        return printerService;
-    }
-
 }

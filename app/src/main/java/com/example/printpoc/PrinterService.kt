@@ -1,11 +1,10 @@
-package com.example.printpoc;
+package com.example.printpoc
 
-import android.graphics.Bitmap;
+import android.graphics.Bitmap
 
-public interface PrinterService {
-
-    void initPrinter();
-    void deInitPrinter();
-    void print(String content);
-    void printBitamp(Bitmap content);
+interface PrinterService {
+    fun initPrinter()
+    fun deInitPrinter()
+    fun print(content: String?)
+    fun printBitamp(content: Bitmap?)
 }

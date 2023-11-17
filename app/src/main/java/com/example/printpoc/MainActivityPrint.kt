@@ -1,21 +1,14 @@
-package com.example.printpoc;
+package com.example.printpoc
 
-import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-public class MainActivityPrint extends AppCompatActivity {
-
-    PrinterService printerService =null;
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        printerService = new IMinPrinterService();
-        printerService.initPrinter();
-        printerService.print(" Hello Toshiba !!");
+class MainActivityPrint : AppCompatActivity() {
+    var printerService: PrinterService? = null
+    public override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        printerService = IMinPrinterService()
+        printerService!!.initPrinter()
+        printerService!!.print(" Hello Toshiba !!")
     }
-
 }
